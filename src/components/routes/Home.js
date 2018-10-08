@@ -18,6 +18,12 @@ class Home extends React.Component {
 			this.setState({ books: response });
 		});
 	}
+
+	render() {
+		return (
+			''
+		);
+	}
 }
 
 
