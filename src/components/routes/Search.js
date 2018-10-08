@@ -5,7 +5,6 @@ import Book from '../Book.js'
 
 
 
-
 class Search extends React.Component {
 	constructor(props) {
 		super(props);
@@ -62,11 +61,12 @@ class Search extends React.Component {
 	updateBook = (book, shelf) => {
 		BooksAPI.update(book, shelf)
 		.then(response => {
-			// console.log(response);
 			book.shelf = shelf;
-			this.setState(state => ({
-				books: (state.books.filter(b => b.id !== book.id).concat(book))
-			}));
+			this.setState(state => (
+				{
+					books: (state.books.filter(b => b.id !== book.id).concat(book))
+				}
+			));
 		});
 	}
 
@@ -80,7 +80,7 @@ class Search extends React.Component {
 					</div>
 				</div>
 				<div className="search-books-results">
-					<ol className="books-display">
+					<ol className="books-grid">
 						{
 							this.state.results.map((book, key) => <Book updateBook={this.updateBook} book={book} key={key} />)
 						}
