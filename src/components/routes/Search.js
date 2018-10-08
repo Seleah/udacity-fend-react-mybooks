@@ -23,6 +23,10 @@ class Search extends React.Component {
 		});
 	}
 
+	updateQuery = (query) => {
+		this.setState({query: query}, this.submitSearch);
+	}
+
 	submitSearch() {
 		//  When there is nothing in the input field on the search page,
 		// show no results
@@ -52,6 +56,17 @@ class Search extends React.Component {
 				});
 				return this.setState({ results: result});
 			}
+		});
+	}
+
+	updateBook = (book, shelf) => {
+		BooksAPI.update(book, shelf)
+		.then(response => {
+			// console.log(response);
+			book.shelf = shelf;
+			this.setState(state => ({
+				books: (state.books.filter(b => b.id !== book.id).concat(book))
+			}));
 		});
 	}
 
