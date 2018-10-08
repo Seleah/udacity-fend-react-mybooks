@@ -19,6 +19,10 @@ class Home extends React.Component {
 		});
 	}
 
+	updateBook = (book, shelf) => {
+		BooksAPI.update(book, shelf);
+	}
+
 	render() {
 		return (
 			''
