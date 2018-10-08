@@ -5,7 +5,12 @@ import Shelf from '../Shelf';
 
 
 class Home extends React.Component {
-
+	constructor(props) {
+		super(props);
+		this.state =  {
+			books: []
+		};
+	}
 }
 
 
