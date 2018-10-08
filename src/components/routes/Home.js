@@ -11,6 +11,13 @@ class Home extends React.Component {
 			books: []
 		};
 	}
+
+	componentDidMount() {
+		BooksAPI.getAll()
+		.then(response => {
+			this.setState({ books: response });
+		});
+	}
 }
 
 
