@@ -9,6 +9,11 @@ import Book from '../Book.js'
 class Search extends React.Component {
 	constructor(props) {
 		super(props);
+		this.state = {
+			books: [],
+			results: [],
+			query: ""
+		}
 	}
 
 	render() {
