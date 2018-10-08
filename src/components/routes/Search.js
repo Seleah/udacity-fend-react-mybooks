@@ -16,6 +16,13 @@ class Search extends React.Component {
 		}
 	}
 
+	componentDidMount() {
+		BooksAPI.getAll()
+		.then(response => {
+			this.setState({ books: response });
+		});
+	}
+
 	render() {
 		return (
 			<div className="search-books">
