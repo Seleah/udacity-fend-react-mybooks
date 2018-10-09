@@ -32,7 +32,7 @@ class Book extends React.Component {
 					<div className="book-authors">{this.props.book.authors && this.props.book.authors[0] || "No Author"}</div>
 					<div className="book-rating">
 						{
-							this.props.book.averageRating ? this.createRating() : ""
+							this.props.book.averageRating ? this.createRating() : "No Rating"
 						}
 					</div>
 				</div>

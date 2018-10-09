@@ -24,7 +24,6 @@ class Home extends React.Component {
 		.then(response => {
 			book.shelf = shelf;
 			this.setState(state => (
-				console.log(state.books),
 				{
 					books: state.books.filter(b => b.id !== book.id).concat(book)
 				}

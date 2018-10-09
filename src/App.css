@@ -181,6 +181,8 @@ body, .app {
   list-style: none;
   display: inline-block;
   justify-content: center;
+  font-size: 0.8em;
+  color: #7d7d7d;
 }
 .book-rating img {
   /*background-image: url('icons/star.svg');
