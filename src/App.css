@@ -174,3 +174,17 @@ body, .app {
   text-align: center;
   font-size: 0.8em;
 }
+
+/* book rating */
+
+.book-rating {
+  list-style: none;
+  display: inline-block;
+  justify-content: center;
+}
+.book-rating img {
+  /*background-image: url('icons/star.svg');
+  background-repeat: no-repeat;*/
+  height: 20px;
+  width: 15px;
+}

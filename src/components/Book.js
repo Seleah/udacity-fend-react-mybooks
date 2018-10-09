@@ -1,4 +1,5 @@
-import React from 'react';
+import React from 'react'
+import star from '../icons/star.svg'
 
 
 class Book extends React.Component {
@@ -20,6 +21,13 @@ class Book extends React.Component {
 					</div>
 					<div className="book-title">{this.props.book.title}</div>
 					<div className="book-authors">{this.props.book.authors && this.props.book.authors[0] || "No Author"}</div>
+					<div className="book-rating" hidden={this.props.book.averageRating ? "" : "true"}>
+						<img src={star} hidden={this.props.book.averageRating >= 1 ? "" : "true"} />
+						<img src={star} hidden={this.props.book.averageRating >= 2 ? "" : "true"} />
+						<img src={star} hidden={this.props.book.averageRating >= 3 ? "" : "true"} />
+						<img src={star} hidden={this.props.book.averageRating >= 4 ? "" : "true"} />
+						<img src={star} hidden={this.props.book.averageRating === 5 ? "" : "true"} />
+					</div>
 				</div>
 			</li>
 		);
@@ -27,3 +35,8 @@ class Book extends React.Component {
 }
 
 export default Book;
+
+
+// Average Rating: {this.props.book.averageRating}
+
+// <img url="icons/star.svg" />
