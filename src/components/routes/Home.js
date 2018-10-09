@@ -5,12 +5,10 @@ import Shelf from '../Shelf';
 
 
 export default class Home extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state =  {
-			books: []
-		};
-	}
+
+	state = {
+		books: []
+	};
 
 	componentDidMount() {
 		BooksAPI.getAll()
