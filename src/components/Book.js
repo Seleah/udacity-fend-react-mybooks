@@ -1,8 +1,9 @@
-import React from 'react'
-import star from '../icons/star.svg'
+import React from 'react';
+import star from '../icons/star.svg';
+// import { Link } from 'react-router-dom';
 
 
-class Book extends React.Component {
+export default class Book extends React.Component {
 	createRating = (n) => {
 		let rating = [];
 
@@ -13,11 +14,12 @@ class Book extends React.Component {
 	}
 
 	render() {
+		// display book component, original render function in App.js provided in the starter code was a huge help. Thanks!/
 		return (
 			<li>
 				<div className="book">
 					<div className="book-top">
-						<div className="book-cover" style={{ backgroundImage: `url(${ this.props.book.imageLinks && this.props.book.imageLinks.thumbnail || "" })`}}/>
+						<div className="book-cover" style={{ backgroundImage: `url(${ this.props.book.imageLinks && this.props.book.imageLinks.thumbnail || '' })`}}/>
 						<div className="book-shelf-changer">
 							<select value={this.props.book.shelf ? this.props.book.shelf : "none"} onChange={(e) => { this.props.updateBook(this.props.book, e.target.value) }}>
 								<option value="move" disabled={true}>Move to...</option>
@@ -28,7 +30,7 @@ class Book extends React.Component {
 							</select>
 						</div>
 					</div>
-					<div className="book-title">{this.props.book.title}</div>
+					<h3 className="book-title">{this.props.book.title}</h3>
 					<div className="book-authors">{this.props.book.authors && this.props.book.authors[0] || "No Author"}</div>
 					<div className="book-rating">
 						{
@@ -40,5 +42,3 @@ class Book extends React.Component {
 		);
 	}
 }
-
-export default Book;

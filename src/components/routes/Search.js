@@ -5,7 +5,7 @@ import Book from '../Book.js'
 
 
 
-class Search extends React.Component {
+export default class Search extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -33,8 +33,8 @@ class Search extends React.Component {
 			return this.setState({ results: [] });
 		}
 
-		//  If something is typed into the input field, attempt to search
-		//  and show results
+		//  If (this.state.query), attempt to search and show results after
+		//  trimming white space from the beginning and end of the query
 		BooksAPI.search(this.state.query.trim()).then(result => {
 			//  If there are no matches, show no matches
 			if(result.error) {
@@ -52,9 +52,14 @@ class Search extends React.Component {
 						b.shelf = resultFiltered[0].shelf;
 						// console.log('before:', resultFiltered[0].shelf);
 					}
-				});
-				return this.setState({ results: result});
+				})
 			}
+			return this.setState({ results: result});
+		}).catch(() => {
+			//  catch TypeError when there is only whitespace in the search field
+			//  (this.state.query === undefined) because for some reason, that hasn't
+			//  already been caught
+			return this.setState({ results: [] });
 		});
 	}
 
@@ -90,6 +95,3 @@ class Search extends React.Component {
 		);
 	}
 }
-
-
-export default Search;

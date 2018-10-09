@@ -4,7 +4,7 @@ import * as BooksAPI from '../../BooksAPI';
 import Shelf from '../Shelf';
 
 
-class Home extends React.Component {
+export default class Home extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state =  {
@@ -24,6 +24,7 @@ class Home extends React.Component {
 		.then(response => {
 			book.shelf = shelf;
 			this.setState(state => (
+				console.log(state.books[0]),
 				{
 					books: state.books.filter(b => b.id !== book.id).concat(book)
 				}
@@ -51,6 +52,3 @@ class Home extends React.Component {
 		);
 	}
 }
-
-
-export default Home

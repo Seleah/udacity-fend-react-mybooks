@@ -6,7 +6,7 @@ import { Route } from 'react-router-dom';
 import Home from './components/routes/Home';
 import Search from './components/routes/Search';
 
-class BooksApp extends React.Component {
+export default class BooksApp extends React.Component {
   render() {
     return (
       <div>
@@ -16,8 +16,6 @@ class BooksApp extends React.Component {
     );
   }
 }
-
-export default BooksApp
 
 // import React from 'react'
 // // import * as BooksAPI from './BooksAPI'
